@@ -69,17 +69,16 @@ void loop()
       Serial.printf("Error: can't read power!!\r\n");
     }
 
-    /* Read Apparent power parameter */
-    ap_power = mcu.SDM120CT_AP_Power(id);
-    if(ap_power != -1)
+    /* Read energy parameter */
+    energy = mcu.SDM120CT_Total_Energy(id);
+    if(energy != -1)
     {
-      Serial.printf("Info: Apparent power = %.1fVA\r\n",ap_power);
+      Serial.printf("Info: energy = %.1fkWh\r\n",energy);
     }
     else
     {
-      Serial.printf("Error: can't read Apparent power!!\r\n");
+      Serial.printf("Error: can't read engergy!!\r\n");
     }
-
 
     /* Read frequency parameter */
     freq = mcu.SDM120CT_Freq(id);
